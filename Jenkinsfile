@@ -14,6 +14,12 @@ pipeline{
     }
 
     stages{
+
+        stage('init') {
+              scripts {
+                    library "my-shared-library@main"
+              }
+        }
          
         stage('Git Checkout'){
                     when { expression {  params.action == 'create' } }
